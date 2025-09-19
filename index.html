@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Medida de Segurança: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <title>RIFA LOTS 2025 - Sua Chance de Ganhar!</title>
+    <meta name="description" content="RIFA LOTS 2025 - Apenas R$1 por número! Prêmios: R$300, R$150 e R$50. Sorteio ao vivo no Instagram.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 10px 10px rgba(250, 204, 21, 0);
+            }
+        }
+        .modal-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scrollbar::-webkit-scrollbar-track {
+            background-color: #1f2937;
+        }
+        .modal-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #facc15;
+            border-radius: 10px;
+            border: 2px solid #1f2937;
+        }
+        /* Estilos para Impressão do Relatório */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #reportModal, #reportContent, #reportContent * {
+                visibility: visible;
+            }
+            #reportModal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: auto;
+                border: none;
+                box-shadow: none;
+                background-color: white !important;
+                color: black !important;
+            }
+            .report-print-area {
+                color: black !important;
+            }
+            .report-print-area h3, .report-print-area p, .report-print-area strong {
+                 color: black !important;
+            }
+            .report-print-area span {
+                 background-color: #eee !important;
+                 color: black !important;
+                 border: 1px solid #ccc !important;
+                 padding: 2px 4px;
+                 margin: 2px;
+                 display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <!-- Cabeçalho -->
+        <header class="text-center my-8">
+            <div class="flex justify-center mb-4">
+                 <!-- A logo que você enviou está aqui. Se precisar trocar, substitua o conteúdo do 'src' -->
+                <img src="image-Photoroom.png" alt="RIFA LOTS 2025" class="w-32 h-32 md:w-40 md:h-40 object-contain">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-yellow-400 tracking-tighter" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">RIFA LOTS 2025</h1>
+            <p class="text-lg md:text-xl text-gray-300 mt-2">Sua chance de ganhar está aqui!</p>
+            <p id="raffleInfo" class="text-sm text-yellow-500 mt-2"></p>
+        </header>
+
+        <!-- Banner de Urgência -->
+        <div class="bg-red-600 text-white text-center p-4 rounded-xl font-bold text-lg md:text-xl my-8 pulse-animation">
+            ⏰ APENAS 350 NÚMEROS POR RODADA - ALTA CHANCE DE GANHAR!
+        </div>
+
+        <!-- Conteúdo Principal: Preço e Prêmios -->
+        <main class="grid md:grid-cols-2 gap-8 my-8">
+            <!-- Seção de Preço -->
+            <div class="bg-gray-800 p-8 rounded-2xl text-center border border-gray-700 shadow-2xl flex flex-col justify-center">
+                <h2 class="text-2xl font-bold text-yellow-400 mb-4">💰 PREÇO ESPECIAL</h2>
+                <div class="my-4">
+                    <span class="text-6xl font-extrabold text-yellow-300">R$ 1</span>
+                    <span class="text-gray-400">/ número</span>
+                </div>
+                <p class="text-gray-300">Investimento baixo, oportunidade alta!<br>Compre quantos números quiser!</p>
+            </div>
+
+            <!-- Seção de Prêmios -->
+            <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-2xl">
+                <h2 class="text-2xl font-bold text-yellow-400 mb-6 text-center">🏆 PRÊMIOS</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center bg-gray-700 p-4 rounded-lg text-lg">
+                        <span>🥇 1º Lugar</span>
+                        <strong class="text-yellow-300">R$ 300</strong>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-700 p-4 rounded-lg text-lg">
+                        <span>🥈 2º Lugar</span>
+                        <strong class="text-yellow-300">R$ 150</strong>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-700 p-4 rounded-lg text-lg">
+                        <span>🥉 3º Lugar</span>
+                        <strong class="text-yellow-300">R$ 50</strong>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Seção Nossa Missão -->
+        <section class="bg-gray-800 p-8 rounded-2xl text-center my-8 border border-gray-700 shadow-2xl">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-4">✈️ NOSSA MISSÃO: AERODESIGN</h2>
+            <p class="text-gray-300 mb-6 max-w-3xl mx-auto">
+                A RIFA LOTS é uma iniciativa da nossa equipe de aerodesign da faculdade. Todo o valor arrecadado será fundamental para custear os materiais, a construção do nosso avião e a nossa participação em competições nacionais. Ao participar, você não só concorre a prêmios incríveis, mas também nos ajuda a voar mais alto e representar nossa universidade!
+            </p>
+        </section>
+
+        <!-- Seção de Escolha de Números -->
+        <section class="bg-gray-800 p-8 rounded-2xl text-center my-8 border border-gray-700 shadow-2xl">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-4">🎯 ESCOLHA SEUS NÚMEROS</h2>
+            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Clique no botão abaixo para ver o painel com todos os números disponíveis e escolher os seus da sorte!</p>
+            <button class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-lg text-xl transition-transform transform hover:scale-105 shadow-lg" onclick="openNumbersModal()">
+                📋 VER NÚMEROS DISPONÍVEIS
+            </button>
+        </section>
+
+        <!-- Seção de Informações -->
+        <section class="grid md:grid-cols-3 gap-8 my-8">
+            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700">
+                <h3 class="text-xl font-bold text-yellow-400 mb-2">⚡ Alta Chance</h3>
+                <p class="text-gray-300">Com apenas 350 números, suas chances de ganhar são muito maiores!</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700">
+                <h3 class="text-xl font-bold text-yellow-400 mb-2">📺 Transparência Total</h3>
+                <p class="text-gray-300">Sorteio realizado AO VIVO no Instagram para todos acompanharem.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700">
+                <h3 class="text-xl font-bold text-yellow-400 mb-2">🔒 Seguro & Confiável</h3>
+                <p class="text-gray-300">Comprovantes e lista de ganhadores publicados após o sorteio.</p>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+         <section class="text-center my-12">
+            <a href="https://wa.me/5531999121383" class="bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-10 rounded-lg text-xl transition-transform transform hover:scale-105 shadow-lg inline-block" target="_blank">
+                🚀 GARANTIR MEUS NÚMEROS
+            </a>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="text-center text-gray-500 py-8 mt-8 border-t border-gray-700">
+            <p>&copy; 2025 RIFA LOTS - Todos os direitos reservados</p>
+            <p class="text-xs mt-2">Aviso: Os números marcados como "vendidos" são atualizados pelo administrador. A lista oficial de participantes é a que consta no controle da organização.</p>
+            <p class="cursor-pointer hover:text-yellow-400 mt-2" onclick="enterAdminMode()">Modo Administrador</p>
+        </footer>
+    </div>
+    
+    <!-- Painel de Administrador (escondido por padrão) -->
+    <div id="adminPanel" class="hidden fixed bottom-4 right-4 bg-gray-800 border border-yellow-400 p-4 rounded-lg shadow-lg z-50 w-64">
+        <h4 class="font-bold text-yellow-400">Painel do Admin</h4>
+        <p class="text-sm text-gray-300 mb-2">Você está no modo de edição.</p>
+        <button id="startNewRaffleBtn" onclick="startNewRaffle()" class="w-full bg-green-600 hover:bg-green-500 text-white font-semibold py-2 px-4 rounded-md text-sm disabled:bg-gray-500 disabled:cursor-not-allowed">
+            Iniciar Nova Rifa
+        </button>
+
+        <div class="mt-4 pt-4 border-t border-gray-600">
+            <label for="reportRound" class="block text-sm font-medium text-gray-300">Gerar Relatório</label>
+            <div class="flex items-center gap-2 mt-1">
+                <input type="number" id="reportRound" name="reportRound" class="w-full bg-gray-900 text-white p-2 rounded-md border border-gray-600 text-sm" placeholder="Nº da Rodada">
+                <button onclick="generateReport()" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-md text-sm">Gerar</button>
+            </div>
+        </div>
+        
+        <div class="mt-4 pt-4 border-t border-gray-600">
+            <h5 class="text-sm font-bold text-red-400 mb-2">Ações Perigosas</h5>
+             <button id="finalizeRaffleBtn" onclick="finalizeRaffle()" class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-semibold py-2 px-4 rounded-md text-sm mb-2 disabled:bg-gray-500 disabled:cursor-not-allowed">
+                Finalizar Rifa Atual
+            </button>
+            <button onclick="resetAllData()" class="w-full bg-red-800 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md text-sm">
+                Resetar TUDO
+            </button>
+        </div>
+
+        <button onclick="exitAdminMode()" class="w-full bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-md text-sm mt-4">
+            Sair do Modo Admin
+        </button>
+    </div>
+
+    <!-- Modal para seleção de números -->
+    <div id="numbersModal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-gray-700">
+            <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+                <h2 id="modalTitle" class="text-2xl font-bold text-yellow-400">🎯 ESCOLHA SEUS NÚMEROS</h2>
+                <button class="text-3xl text-gray-400 hover:text-yellow-400" onclick="closeNumbersModal()">&times;</button>
+            </div>
+
+            <div class="p-6 flex-grow overflow-y-auto modal-scrollbar">
+                <div id="selectionSummary" class="bg-gray-900 p-4 rounded-lg mb-4 text-center sticky top-0 z-10">
+                    <p><strong>Números selecionados:</strong> <span id="selectedCount">0</span></p>
+                    <p><strong>Total a pagar:</strong> R$ <span id="totalPrice">0,00</span></p>
+                    <div id="selectedNumbersDisplay" class="mt-2 text-sm text-yellow-400 break-words"></div>
+                </div>
+
+                <div id="numbersGrid" class="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-2">
+                    <!-- Números serão gerados pelo JavaScript -->
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-gray-700">
+                <button id="confirmBtn" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-lg text-lg transition-opacity disabled:opacity-50 disabled:cursor-not-allowed" onclick="confirmSelection()" disabled>
+                    📱 FINALIZAR COMPRA NO WHATSAPP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para senha do admin -->
+    <div id="adminPasswordModal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl max-w-sm w-full p-8 shadow-2xl border border-gray-700">
+            <h3 class="text-xl font-bold text-yellow-400 mb-4">Acesso Restrito</h3>
+            <p class="text-gray-400 mb-4">Digite a senha de administrador para continuar.</p>
+            <input type="password" id="adminPasswordInput" class="w-full bg-gray-900 text-white p-3 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            <p id="adminPasswordError" class="text-red-500 text-sm mt-2 hidden">Senha incorreta!</p>
+            <div class="flex gap-4 mt-6">
+                <button onclick="closeAdminPasswordModal()" class="w-full bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-md">Cancelar</button>
+                <button onclick="submitAdminPassword()" class="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-2 px-4 rounded-md">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmationModal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl max-w-md w-full p-8 shadow-2xl border border-red-500">
+            <h3 id="confirmationTitle" class="text-xl font-bold text-yellow-400 mb-4"></h3>
+            <p id="confirmationMessage" class="text-gray-300 mb-6"></p>
+
+            <!-- Campo para confirmação por texto -->
+            <div id="confirmationTextInputWrapper" class="hidden mb-4">
+                <label id="confirmationLabel" for="confirmationInput" class="block text-sm font-medium text-gray-300 mb-1"></label>
+                <input type="text" id="confirmationInput" class="w-full bg-gray-900 text-white p-3 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+            </div>
+
+            <div class="flex gap-4 mt-6 justify-end">
+                <button id="confirmCancelBtn" class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded-md">Cancelar</button>
+                <button id="confirmOkBtn" class="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-6 rounded-md disabled:bg-red-900 disabled:cursor-not-allowed">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal de Relatório -->
+    <div id="reportModal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-gray-700">
+            <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-yellow-400">Relatório da Rifa</h2>
+                <button class="text-3xl text-gray-400 hover:text-yellow-400" onclick="closeReportModal()">&times;</button>
+            </div>
+            <div id="reportContent" class="p-8 flex-grow overflow-y-auto modal-scrollbar">
+                <!-- Conteúdo do relatório será inserido aqui -->
+            </div>
+            <div class="p-6 border-t border-gray-700 flex justify-end gap-4">
+                <button onclick="printReport()" class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded-md">Imprimir</button>
+                <button onclick="closeReportModal()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-md">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Toast Notification -->
+    <div id="toast" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-500 text-white py-2 px-6 rounded-lg shadow-lg z-50 transition-opacity duration-300">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script>
+        const NUMBERS_PER_RAFFLE = 350;
+        const INITIAL_START_NUMBER = 9801;
+        const WHATSAPP_NUMBER = "5531999121383";
+
+        let selectedNumbers = [];
+        let soldNumbersByRound = {};
+        let lockedRounds = [];
+        let raffleRound = 0;
+        let isAdminMode = false;
+
+        function loadState() {
+            const savedSoldData = localStorage.getItem('raffleSoldData');
+            const savedRaffleRound = localStorage.getItem('raffleRound');
+            const savedLockedRounds = localStorage.getItem('raffleLockedRounds');
+            
+            soldNumbersByRound = savedSoldData ? JSON.parse(savedSoldData) : {};
+            raffleRound = savedRaffleRound ? parseInt(savedRaffleRound, 10) : 0;
+            lockedRounds = savedLockedRounds ? JSON.parse(savedLockedRounds) : [];
+        }
+
+        function saveState() {
+            localStorage.setItem('raffleSoldData', JSON.stringify(soldNumbersByRound));
+            localStorage.setItem('raffleRound', raffleRound.toString());
+            localStorage.setItem('raffleLockedRounds', JSON.stringify(lockedRounds));
+        }
+
+        function updateRaffleInfo() {
+            const startNumber = INITIAL_START_NUMBER + (raffleRound * NUMBERS_PER_RAFFLE);
+            const endNumber = startNumber + NUMBERS_PER_RAFFLE - 1;
+            const infoEl = document.getElementById('raffleInfo');
+            const isCurrentRoundLocked = lockedRounds.includes(raffleRound);
+            
+            let status = isCurrentRoundLocked ? '<span class="text-red-400 font-bold">[FINALIZADA]</span>' : '<span class="text-green-400 font-bold">[EM ANDAMENTO]</span>';
+            infoEl.innerHTML = `Rodada #${raffleRound + 1} ${status} | Números para sorteio de ${startNumber} a ${endNumber}`;
+            
+            if(document.getElementById('reportRound')) {
+                document.getElementById('reportRound').value = raffleRound + 1;
+            }
+            if(document.getElementById('finalizeRaffleBtn')) {
+                document.getElementById('finalizeRaffleBtn').disabled = isCurrentRoundLocked;
+                document.getElementById('startNewRaffleBtn').disabled = isCurrentRoundLocked;
+            }
+        }
+
+        function generateNumbersGrid() {
+            const grid = document.getElementById('numbersGrid');
+            grid.innerHTML = '';
+
+            const startDisplayNumber = (raffleRound * NUMBERS_PER_RAFFLE) + 1;
+            const endDisplayNumber = startDisplayNumber + NUMBERS_PER_RAFFLE - 1;
+            const currentRoundSoldNumbers = soldNumbersByRound[raffleRound] || [];
+
+            for (let i = startDisplayNumber; i <= endDisplayNumber; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.dataset.number = i;
+                
+                let buttonClasses = 'p-2 rounded-md font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400';
+
+                if (currentRoundSoldNumbers.includes(i)) {
+                    buttonClasses += ' bg-red-700 text-gray-300 cursor-not-allowed line-through';
+                    button.disabled = true;
+                } else if (selectedNumbers.includes(i)) {
+                    buttonClasses += ' bg-green-600 text-white scale-110 shadow-lg';
+                } else {
+                    buttonClasses += ' bg-gray-700 text-white hover:bg-gray-600';
+                }
+
+                button.className = buttonClasses;
+                button.onclick = () => toggleNumber(i);
+                grid.appendChild(button);
+            }
+        }
+
+        function toggleNumber(number) {
+            const currentRoundSoldNumbers = soldNumbersByRound[raffleRound] || [];
+
+            if (isAdminMode) {
+                if (lockedRounds.includes(raffleRound)) {
+                    showToast("Esta rodada está finalizada e não pode ser alterada.", true);
+                    return;
+                }
+                const index = currentRoundSoldNumbers.indexOf(number);
+                if (index > -1) {
+                    currentRoundSoldNumbers.splice(index, 1);
+                } else {
+                    currentRoundSoldNumbers.push(number);
+                }
+                soldNumbersByRound[raffleRound] = currentRoundSoldNumbers;
+                saveState();
+            } else {
+                if (currentRoundSoldNumbers.includes(number)) return;
+                
+                const index = selectedNumbers.indexOf(number);
+                if (index > -1) {
+                    selectedNumbers.splice(index, 1);
+                } else {
+                    selectedNumbers.push(number);
+                }
+                updateSelectionSummary();
+            }
+            generateNumbersGrid();
+        }
+
+        function updateSelectionSummary() {
+            document.getElementById('selectedCount').textContent = selectedNumbers.length;
+            document.getElementById('totalPrice').textContent = selectedNumbers.length.toFixed(2).replace('.', ',');
+            
+            const confirmBtn = document.getElementById('confirmBtn');
+            confirmBtn.disabled = selectedNumbers.length === 0;
+
+            const selectedDisplay = document.getElementById('selectedNumbersDisplay');
+            if (selectedNumbers.length > 0) {
+                selectedDisplay.innerHTML = `<strong>Seus números:</strong> ${selectedNumbers.sort((a,b) => a - b).join(', ')}`;
+            } else {
+                selectedDisplay.innerHTML = '';
+            }
+        }
+
+        function confirmSelection() {
+            if (selectedNumbers.length === 0) return;
+            const realSelectedNumbers = selectedNumbers.map(num => INITIAL_START_NUMBER + num - 1);
+            
+            const message = `Olá! Quero participar da *RIFA LOTS 2025* 🐝 (Rodada #${raffleRound + 1})
+
+📋 *Números escolhidos (display):* ${selectedNumbers.sort((a, b) => a - b).join(', ')}
+🔢 *Números reais para sorteio:* ${realSelectedNumbers.sort((a,b) => a-b).join(', ')}
+💰 *Total a pagar:* R$ ${selectedNumbers.length.toFixed(2).replace('.', ',')}
+📊 *Quantidade:* ${selectedNumbers.length} números
+
+Aguardo os dados para PIX! 💳`;
+
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            closeNumbersModal();
+        }
+
+        function openNumbersModal() {
+            document.getElementById('numbersModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = isAdminMode ? 'ADMIN: MARCAR NÚMEROS VENDIDOS' : '🎯 ESCOLHA SEUS NÚMEROS';
+            document.getElementById('selectionSummary').style.display = isAdminMode ? 'none' : 'block';
+            document.getElementById('confirmBtn').style.display = isAdminMode ? 'none' : 'block';
+            generateNumbersGrid();
+        }
+
+        function closeNumbersModal() {
+            document.getElementById('numbersModal').classList.add('hidden');
+             if (!isAdminMode) {
+                selectedNumbers = [];
+                updateSelectionSummary();
+             }
+        }
+        
+        // --- FUNÇÕES DE ADMIN ---
+        let confirmCallback = () => {};
+        function showConfirmationModal(title, message, onConfirm, confirmationText = null) {
+            document.getElementById('confirmationTitle').textContent = title;
+            document.getElementById('confirmationMessage').textContent = message;
+            confirmCallback = onConfirm;
+            
+            const modal = document.getElementById('confirmationModal');
+            const textInputWrapper = document.getElementById('confirmationTextInputWrapper');
+            const textInput = document.getElementById('confirmationInput');
+            const okBtn = document.getElementById('confirmOkBtn');
+            const label = document.getElementById('confirmationLabel');
+
+            if (confirmationText) {
+                textInputWrapper.classList.remove('hidden');
+                label.innerHTML = `Para confirmar, digite "<strong class="text-yellow-300">${confirmationText}</strong>" abaixo:`;
+                textInput.value = '';
+                okBtn.disabled = true;
+                
+                textInput.oninput = () => {
+                    okBtn.disabled = textInput.value !== confirmationText;
+                };
+
+            } else {
+                textInputWrapper.classList.add('hidden');
+                okBtn.disabled = false;
+            }
+
+            modal.classList.remove('hidden');
+
+            document.getElementById('confirmCancelBtn').onclick = () => modal.classList.add('hidden');
+            document.getElementById('confirmOkBtn').onclick = () => {
+                if(okBtn.disabled) return;
+                modal.classList.add('hidden');
+
+                confirmCallback();
+            };
+        }
+
+        function openAdminPasswordModal() {
+            document.getElementById('adminPasswordModal').classList.remove('hidden');
+            const passwordInput = document.getElementById('adminPasswordInput');
+            passwordInput.focus();
+            passwordInput.value = '';
+            document.getElementById('adminPasswordError').classList.add('hidden');
+        }
+
+        function closeAdminPasswordModal() {
+            document.getElementById('adminPasswordModal').classList.add('hidden');
+        }
+
+        function submitAdminPassword() {
+            const passwordInput = document.getElementById('adminPasswordInput');
+            const errorEl = document.getElementById('adminPasswordError');
+            if (passwordInput.value === "RIFA2025") {
+                isAdminMode = true;
+                document.getElementById('adminPanel').classList.remove('hidden');
+                closeAdminPasswordModal();
+                showToast("Modo administrador ativado.");
+            } else {
+                errorEl.classList.remove('hidden');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+        
+        function enterAdminMode() {
+            openAdminPasswordModal();
+        }
+
+        function exitAdminMode() {
+            isAdminMode = false;
+            document.getElementById('adminPanel').classList.add('hidden');
+            showToast("Modo administrador desativado.");
+        }
+
+        function startNewRaffle() {
+            if (lockedRounds.includes(raffleRound)) {
+                showToast("Você não pode iniciar uma nova rifa a partir de uma rodada finalizada.", true);
+                return;
+            }
+            showConfirmationModal(
+                "Iniciar Nova Rifa?",
+                "Isso irá avançar para a próxima rodada. A rodada atual NÃO será finalizada. Deseja continuar?",
+                () => {
+                    raffleRound++;
+                    saveState();
+                    updateRaffleInfo();
+                    showToast(`Nova rifa (Rodada #${raffleRound + 1}) iniciada com sucesso!`);
+                }
+            );
+        }
+
+        function finalizeRaffle() {
+             if (lockedRounds.includes(raffleRound)) {
+                showToast("Esta rodada já está finalizada.", true);
+                return;
+            }
+            showConfirmationModal(
+                "Finalizar Rifa Atual?",
+                "Esta ação irá bloquear a rodada atual (#" + (raffleRound + 1) + ") permanentemente. Você não poderá mais editar os números vendidos. Esta ação não pode ser desfeita.",
+                () => {
+                    lockedRounds.push(raffleRound);
+                    saveState();
+                    updateRaffleInfo();
+                    showToast(`Rodada #${raffleRound + 1} finalizada com sucesso.`);
+                },
+                "FINALIZAR"
+            );
+        }
+
+        function resetAllData() {
+            showConfirmationModal(
+                "RESETAR TUDO?",
+                "Você está prestes a apagar TODOS os dados de TODAS as rifas (números vendidos, rodadas, etc). O sistema voltará ao estado inicial. Esta ação é irreversível.",
+                () => {
+                    localStorage.removeItem('raffleSoldData');
+                    localStorage.removeItem('raffleRound');
+                    localStorage.removeItem('raffleLockedRounds');
+                    
+                    // Recarrega o estado do zero
+                    loadState(); 
+                    updateRaffleInfo();
+                    showToast("Todos os dados da rifa foram resetados.", true);
+                },
+                "RESETAR TUDO"
+            );
+        }
+
+        function generateReport() {
+            const roundInput = document.getElementById('reportRound');
+            const roundNumber = parseInt(roundInput.value, 10);
+
+            if (isNaN(roundNumber) || roundNumber < 1) {
+                showToast("Por favor, insira um número de rodada válido.", true);
+                return;
+            }
+
+            const roundIndex = roundNumber - 1;
+            const reportSoldNumbers = soldNumbersByRound[roundIndex];
+
+            if (!reportSoldNumbers || reportSoldNumbers.length === 0) {
+                showToast(`Nenhum número vendido encontrado para a rodada #${roundNumber}.`, true);
+                return;
+            }
+
+            const totalSold = reportSoldNumbers.length;
+            const totalRaised = totalSold * 1; // Preço por número
+            const generationDate = new Date().toLocaleString('pt-BR');
+            const startDisplayNumber = (roundIndex * NUMBERS_PER_RAFFLE) + 1;
+            const endDisplayNumber = startDisplayNumber + NUMBERS_PER_RAFFLE - 1;
+
+            const numbersHtml = reportSoldNumbers.sort((a,b) => a-b).map(n => `<span>${n}</span>`).join('');
+
+            const reportHtml = `
+                <div class="report-print-area">
+                    <h3 class="text-xl font-bold text-white mb-4">Relatório da Rodada #${roundNumber}</h3>
+                    <p class="text-gray-300 mb-2"><strong>Período dos números:</strong> ${startDisplayNumber} - ${endDisplayNumber}</p>
+                    <p class="text-gray-300 mb-2"><strong>Gerado em:</strong> ${generationDate}</p>
+                    <p class="text-gray-300 mb-2"><strong>Total de números vendidos:</strong> ${totalSold}</p>
+                    <p class="text-gray-300 mb-4"><strong>Total Arrecadado:</strong> R$ ${totalRaised.toFixed(2).replace('.', ',')}</p>
+                    <div class="border-t border-gray-600 pt-4">
+                        <h4 class="font-semibold text-white mb-2">Números Vendidos:</h4>
+                        <div class="flex flex-wrap gap-2 text-sm">
+                            ${numbersHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('reportContent').innerHTML = reportHtml;
+            document.getElementById('reportModal').classList.remove('hidden');
+        }
+        
+        function closeReportModal() {
+            document.getElementById('reportModal').classList.add('hidden');
+        }
+
+        function printReport() {
+            // A impressão pode não funcionar corretamente em ambientes de preview (iframes/sandboxed).
+            // Em um site hospedado, este código funcionará normalmente.
+            window.print();
+        }
+
+
+        // --- FUNÇÃO DE NOTIFICAÇÃO (TOAST) ---
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toast.className = `fixed bottom-4 left-1/2 -translate-x-1/2 text-white py-2 px-6 rounded-lg shadow-lg z-50 transition-opacity duration-300 ${isError ? 'bg-red-600' : 'bg-green-500'}`;
+            toastMessage.textContent = message;
+            toast.classList.remove('hidden', 'opacity-0');
+            toast.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 500);
+            }, 3000);
+        }
+        
+        // --- INICIALIZAÇÃO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            updateRaffleInfo();
+
+            document.getElementById('numbersModal').addEventListener('click', (event) => {
+                if (event.target === document.getElementById('numbersModal')) {
+                    closeNumbersModal();
+                }
+            });
+
+            document.getElementById('adminPasswordInput').addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    submitAdminPassword();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
