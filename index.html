@@ -6,6 +6,8 @@
     <!-- Medida de Segurança: Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
     <title>RIFA LOTS 2025 - Sua Chance de Ganhar!</title>
+    <!-- Ícone da Aba do Navegador (Favicon) -->
+    <link rel="icon" href="image-Photoroom.png" type="image/png">
     <meta name="description" content="RIFA LOTS 2025 - Apenas R$1 por número! Prêmios: R$300, R$150 e R$50. Sorteio ao vivo no Instagram.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,15 +148,18 @@
 
         <!-- Seção de Informações -->
         <section class="grid md:grid-cols-3 gap-8 my-8">
-            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700">
+            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700 flex flex-col">
                 <h3 class="text-xl font-bold text-yellow-400 mb-2">⚡ Alta Chance</h3>
                 <p class="text-gray-300">Com apenas 350 números, suas chances de ganhar são muito maiores!</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700">
+            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700 flex flex-col">
                 <h3 class="text-xl font-bold text-yellow-400 mb-2">📺 Transparência Total</h3>
-                <p class="text-gray-300">Sorteio realizado AO VIVO no Instagram para todos acompanharem.</p>
+                <p class="text-gray-300 mb-4">Sorteio realizado AO VIVO no Instagram para todos acompanharem.</p>
+                <a href="https://www.instagram.com/lotsaerodesign/" target="_blank" class="mt-auto bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-colors">
+                    Siga para Assistir
+                </a>
             </div>
-            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700">
+            <div class="bg-gray-800 p-6 rounded-2xl text-center border border-gray-700 flex flex-col">
                 <h3 class="text-xl font-bold text-yellow-400 mb-2">🔒 Seguro & Confiável</h3>
                 <p class="text-gray-300">Comprovantes e lista de ganhadores publicados após o sorteio.</p>
             </div>
@@ -328,9 +333,9 @@
             if(document.getElementById('reportRound')) {
                 document.getElementById('reportRound').value = raffleRound + 1;
             }
-            if(document.getElementById('finalizeRaffleBtn')) {
+            if(isAdminMode) {
                 document.getElementById('finalizeRaffleBtn').disabled = isCurrentRoundLocked;
-                document.getElementById('startNewRaffleBtn').disabled = isCurrentRoundLocked;
+                // A lógica de desabilitar o botão de nova rifa foi removida daqui para dar mais flexibilidade.
             }
         }
 
@@ -429,9 +434,23 @@ Aguardo os dados para PIX! 💳`;
 
         function openNumbersModal() {
             document.getElementById('numbersModal').classList.remove('hidden');
-            document.getElementById('modalTitle').textContent = isAdminMode ? 'ADMIN: MARCAR NÚMEROS VENDIDOS' : '🎯 ESCOLHA SEUS NÚMEROS';
+            const isCurrentRoundLocked = lockedRounds.includes(raffleRound);
+            
+            let modalTitle = '🎯 ESCOLHA SEUS NÚMEROS';
+            let showConfirmBtn = true;
+
+            if(isAdminMode) {
+                 modalTitle = `ADMIN: EDITAR RODADA #${raffleRound + 1}`;
+                 if(isCurrentRoundLocked) modalTitle += ' [FINALIZADA]';
+                 showConfirmBtn = false;
+            } else if(isCurrentRoundLocked) {
+                modalTitle = `RIFA #${raffleRound + 1} FINALIZADA`;
+                showConfirmBtn = false;
+            }
+
+            document.getElementById('modalTitle').textContent = modalTitle;
             document.getElementById('selectionSummary').style.display = isAdminMode ? 'none' : 'block';
-            document.getElementById('confirmBtn').style.display = isAdminMode ? 'none' : 'block';
+            document.getElementById('confirmBtn').style.display = showConfirmBtn ? 'block' : 'none';
             generateNumbersGrid();
         }
 
@@ -477,7 +496,6 @@ Aguardo os dados para PIX! 💳`;
             document.getElementById('confirmOkBtn').onclick = () => {
                 if(okBtn.disabled) return;
                 modal.classList.add('hidden');
-
                 confirmCallback();
             };
         }
@@ -501,6 +519,7 @@ Aguardo os dados para PIX! 💳`;
                 isAdminMode = true;
                 document.getElementById('adminPanel').classList.remove('hidden');
                 closeAdminPasswordModal();
+                updateRaffleInfo(); // Update buttons state
                 showToast("Modo administrador ativado.");
             } else {
                 errorEl.classList.remove('hidden');
@@ -520,13 +539,9 @@ Aguardo os dados para PIX! 💳`;
         }
 
         function startNewRaffle() {
-            if (lockedRounds.includes(raffleRound)) {
-                showToast("Você não pode iniciar uma nova rifa a partir de uma rodada finalizada.", true);
-                return;
-            }
             showConfirmationModal(
                 "Iniciar Nova Rifa?",
-                "Isso irá avançar para a próxima rodada. A rodada atual NÃO será finalizada. Deseja continuar?",
+                "Isso irá avançar para a próxima rodada. A rodada atual NÃO será finalizada, mas você pode finalizá-la a qualquer momento. Deseja continuar?",
                 () => {
                     raffleRound++;
                     saveState();
@@ -564,7 +579,11 @@ Aguardo os dados para PIX! 💳`;
                     localStorage.removeItem('raffleLockedRounds');
                     
                     // Recarrega o estado do zero
-                    loadState(); 
+                    selectedNumbers = [];
+                    soldNumbersByRound = {};
+                    lockedRounds = [];
+                    raffleRound = 0;
+
                     updateRaffleInfo();
                     showToast("Todos os dados da rifa foram resetados.", true);
                 },
@@ -595,7 +614,7 @@ Aguardo os dados para PIX! 💳`;
             const startDisplayNumber = (roundIndex * NUMBERS_PER_RAFFLE) + 1;
             const endDisplayNumber = startDisplayNumber + NUMBERS_PER_RAFFLE - 1;
 
-            const numbersHtml = reportSoldNumbers.sort((a,b) => a-b).map(n => `<span>${n}</span>`).join('');
+            const numbersHtml = reportSoldNumbers.sort((a,b) => a-b).map(n => `<span class="bg-gray-700 text-gray-200 py-1 px-2 rounded-md border border-gray-600">${n}</span>`).join('');
 
             const reportHtml = `
                 <div class="report-print-area">
@@ -668,5 +687,6 @@ Aguardo os dados para PIX! 💳`;
     </script>
 </body>
 </html>
+
 
 
